@@ -5,7 +5,7 @@ import styles from './CSS/Header.module.css';
 function Header() {
   return (
     <header className={styles.header}>
-      <h1>NevesStore</h1>
+      <h1>GaRaToStore</h1>
       <nav>
         <Link to="/" className={styles.headerLink}>
           Home
