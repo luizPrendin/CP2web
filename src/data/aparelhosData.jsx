@@ -46,4 +46,26 @@ export const aparelhosData = [
     imagem: Mi11,
   }
 ];
+ 
+export const getAparelhos = () => {
+  return aparelhosData;
+};
+
+export const addAparelho = (aparelho) => {
+  aparelho.id = aparelhosData.length + 1;
+  aparelhosData.push(aparelho);
+};
+
+export const updateAparelho = (aparelho) => {
+  const index = aparelhosData.findIndex((item) => item.id === aparelho.id);
+    if(index !== -1) {
+      aparelhosData[index] = aparelho;
+    }
+};
+
+export const deleteAparelho = (id) => {
+  aparelhosData = aparelhosData.filter((item) => item.id
+  !== id);
+};
+
 export default aparelhosData;
