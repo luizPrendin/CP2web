@@ -7,7 +7,7 @@ function InserirAparelho() {
     const { id } = useParams();
     const navigate = useNavigate();
 
-    // Estado para acompnhar os dados do novo aparelho
+    // Estado para acompanhar os dados do novo aparelho
     const [novoAparelho, setNovoAparelho] = useState({
         nome: '',
         descricaoCurta: '',

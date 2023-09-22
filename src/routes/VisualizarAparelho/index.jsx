@@ -37,6 +37,7 @@ function VisualizarAparelho() {
       <p className={styles.descricaoExtensa}>{aparelho.descricaoExtensa}</p>
       <p className={styles.preco}>Preço: ${aparelho.preco}</p>
       <button onClick={handleDelete}>Excluir Aparelho</button>
+      <button onClick={() => navigate(`/aparelhos/${id}/editar`)}>Editar Aparelho</button>
       <button onClick={() => navigate('/aparelhos')} className={styles.goBackLink}>Voltar para a lista de Aparelhos</button>
     </div>
   );
