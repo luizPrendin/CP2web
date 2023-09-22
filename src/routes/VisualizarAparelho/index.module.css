@@ -27,15 +27,51 @@
     font-family: 'Poppins', sans-serif;
 }
 
-.goBackLink {
-    color: #007bff;
-    text-decoration: none;
-    margin-top: 20px;
-    display: inline-block;
-    font-family: 'Poppins', sans-serif;
+/* Estilos para os botões */
+.deleteButton {
+    background-color: #9b444d; 
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
     font-size: 16px;
+    cursor: pointer;
+    text-decoration: none;
+    margin-right: 10px; 
+    margin-top: 20px;
 }
 
-.goBackLink:hover {
-    text-decoration: none;
+.deleteButton:hover {
+    background-color: #c82333; 
 }
+
+.editButton {
+    background-color: #ffc107; 
+    color: #000;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    text-decoration: none;
+    margin-right: 10px; 
+    margin-top: 20px;
+}
+
+.editButton:hover {
+    background-color: #e0a800; 
+}
+
+.goBackLink {
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    text-decoration: none;
+    margin-right: 10px; 
+    margin-top: 20px;
+}
+

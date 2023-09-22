@@ -17,7 +17,7 @@ function Home() {
       <div className={styles.promotionCardContainer}>
         <div className={styles.promotionCard}>
           <h3>Oferta Especial</h3>
-          <p>Economize $100 em qualquer smartphone com o código "NEVES100".</p>
+          <p>Economize $100 em qualquer smartphone com o código "GARATO100".</p>
         </div>
         <div className={styles.promotionCard}>
           <h3>Smartphones em Destaque</h3>

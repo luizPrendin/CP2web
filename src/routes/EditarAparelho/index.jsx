@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import aparelhosData from "../../data/aparelhosData";
+import styles from './index.module.css';
 
 function EditarAparelho() {
     const { id } = useParams();
@@ -62,7 +63,7 @@ function EditarAparelho() {
 
 
     return (
-        <div>
+        <div className={styles.container}>
             <h2>Editar {aparelho.nome}</h2>
             <label htmlFor="imagem">Upload de Imagem:</label>
             <input
@@ -72,9 +73,9 @@ function EditarAparelho() {
                 onChange={(e) => handleImageUpload(e.target.files)}
             />
             {imageFile ? (
-                <img src={imageFile} alt={editedAparelho.nome} />
+                <img src={imageFile} alt={editedAparelho.nome} className={styles.smartphoneImage} />
             ) : (
-                <img src={editedAparelho.imagem} alt={editedAparelho.nome} />
+                <img src={editedAparelho.imagem} alt={editedAparelho.nome} className={styles.smartphoneImage} />
             )}
             <label htmlFor="nome">Nome:</label>
             <input
@@ -88,12 +89,14 @@ function EditarAparelho() {
                 id="descricaoCurta"
                 value={editedAparelho.descricaoCurta}
                 onChange={(e) => handleFieldChange('descricaoCurta', e.target.value)}
+                className={styles.descricaoCurta}
             />
             <label htmlFor="descricaoExtensa">Descrição Extensa:</label>
             <textarea
                 id="descricaoExtensa"
                 value={editedAparelho.descricaoExtensa}
                 onChange={(e) => handleFieldChange('descricaoExtensa', e.target.value)}
+                className={styles.descricaoExtensa}
             />
             <label htmlFor="preco">Preço:</label>
             <input
@@ -102,7 +105,7 @@ function EditarAparelho() {
                 value={editedAparelho.preco}
                 onChange={(e) => handleFieldChange('preco', e.target.value)}
             />
-            <button onClick={handleSave}>Salvar</button>
+            <button onClick={handleSave} className={styles.saveButton}>Salvar</button>
         </div>
     );
 }
