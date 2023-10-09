@@ -1,11 +1,9 @@
 import React, { useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
-import { addAparelho } from '../../data/aparelhosData.jsx';
+import { useNavigate } from "react-router-dom";
 import styles from './index.module.css';
 
 function InserirAparelho() {
 
-    const { id } = useParams();
     const navigate = useNavigate();
 
     // Estado para acompanhar os dados do novo aparelho
@@ -46,10 +44,20 @@ function InserirAparelho() {
     // Função para adicionar o aparelho
     const handleInsert = () => {
         if (novoAparelho) {
-            //Salvar no novo aparelho
-            addAparelho(novoAparelho);
-            // Navega de volta para a página de aparelhos
-            navigate('/aparelhos');
+            fetch('http://localhost:5000/aparelhos', {
+            method: "POST",
+            headers: {
+                "Content-Type":"application/json"
+            },
+            body: JSON.stringify(novoAparelho)
+            })
+            .then((response)=> response.json())
+            .then(() => {
+                navigate('/aparelhos');
+            })
+            .catch((error) => {
+                console.error('Erro ao inserir aparelho:', error);
+            });     
         }
     };
 

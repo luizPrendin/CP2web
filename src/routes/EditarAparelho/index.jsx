@@ -1,23 +1,50 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import aparelhosData from "../../data/aparelhosData";
 import styles from './index.module.css';
 
 function EditarAparelho() {
     const { id } = useParams();
     const navigate = useNavigate();
 
-    // Encontre o aparelho pelo ID
-    const aparelho = aparelhosData.find((item) => item.id === parseInt(id));
-
     // Estado para acompanhar as edições
-    const [editedAparelho, setEditedAparelho] = useState(aparelho);
     const [imageFile, setImageFile] = useState(null);
+    const [aparelho, setAparelho] = useState({
+        nome: "",
+        descricaoCurta: "",
+        descricaoExtensa: "",
+        preco: "",
+        imagem: "",
+    });
+    const [editedAparelho, setEditedAparelho] = useState(null);
+  
+
+    useEffect(() => {
+        fetch(`http://localhost:5000/aparelhos/${id}`)
+        .then((response) => response.json())
+        .then((data) => {
+            setAparelho(data);
+            setEditedAparelho(data);
+        })
+        .catch((error) => {
+            console.error('Erro ao carregar aparelho:', error);
+        });
+    }, [id]);
 
     // Atualizar o aparelho com as edições
-    const updateAparelho = (aparelho) => {
-        const index = aparelhosData.findIndex((item) => item.id === aparelho.id);
-        aparelhosData[index] = aparelho;
+    const updateAparelho = () => {
+        fetch(`http://localhost:5000/aparelhos/${id}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(editedAparelho),
+        })
+        .then(() => {
+            navigate(`/aparelhos/${id}`);
+        })
+        .catch((error) => {
+            console.error('Erro ao atualizar aparelho:', error);
+        }); 
     };
 
     // Função para lidar com o upload de imagem
@@ -50,14 +77,12 @@ function EditarAparelho() {
                 // Se houver uma nova imagem, atualize a propriedade 'imagem' do aparelho
                 editedAparelho.imagem = imageFile;
             }
-
-            // Realize a lógica de atualização aqui
             updateAparelho(editedAparelho);
             navigate(`/aparelhos/${id}`);
         }
     };
 
-    if (!aparelho) {
+    if (!editedAparelho) {
         return <p>Aparelho não encontrado.</p>;
     }
 
