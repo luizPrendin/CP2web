@@ -23,7 +23,6 @@
   padding: 20px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   background-color: #fff;
-  /* Cor de fundo dos produtos */
 }
 
 .productImage {
@@ -56,6 +55,12 @@
   color: #333;
 }
 
+.buttonContainer {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 10px;
+}
+
 .detailsButton {
   background-color: #007bff;
   color: #fff;
@@ -71,9 +76,65 @@
   background-color: #0056b3;
 }
 
+.editButton {
+  background-color: #ffc107;
+  color: #333;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.editButton:hover {
+  background-color: #d39e00;
+}
+
+.deleteButton {
+  background-color: #ff3547;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.deleteButton:hover {
+  background-color: #d00f1a;
+}
+
+.insertButton {
+  background-color: #28a745;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  text-decoration: none;
+  margin-bottom: 20px;
+}
+
+.greenButton {
+  background-color: #28a745;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.greenButton:hover {
+  background-color: #1e7e34;
+}
+
 .viewAllLink {
   color: #007bff;
-  /* Cor do link "Ver Todos os Smartphones" */
   text-decoration: none;
   margin-top: 10px;
   display: block;

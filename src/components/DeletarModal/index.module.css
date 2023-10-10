@@ -1,0 +1,55 @@
+.modalContainer {
+    font-family: 'Poppins', sans-serif;
+    padding: 20px;
+    text-align: center;
+}
+
+.productName {
+    font-weight: bold;
+    color: #fca103;
+}
+
+.heading {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.message {
+    font-size: 18px;
+    margin-top: 10px;
+    text-align: center;
+}
+
+.buttonContainer {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.button {
+    border: none;
+    padding: 12px 24px;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+.confirmButton {
+    background-color: red;
+    color: white;
+}
+
+.confirmButton:hover {
+    background-color: darkred;
+}
+
+.cancelButton {
+    background-color: blue;
+    color: white;
+}
+
+.cancelButton:hover {
+    background-color: darkblue;
+}
