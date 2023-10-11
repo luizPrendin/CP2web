@@ -158,8 +158,11 @@ function Aparelhos() {
 
       {/* Renderizar o modal de edição se estiver aberto */}
       {isEditModalOpen && (
+        
+          
         <ModalEditarAparelho
-          aparelho={editAparelho}
+          
+          aparelho={editAparelho}          
           closeEditModal={closeEditModal}
           refreshAparelhos={() => {
             fetch('http://localhost:5000/aparelhos')
@@ -167,7 +170,9 @@ function Aparelhos() {
               .then((data) => setAparelhos(data))
               .catch((error) => console.error('Erro ao obter aparelhos:', error));
           }}
+          
         />
+        
       )}
 
       {/* Modal de Detalhes */}

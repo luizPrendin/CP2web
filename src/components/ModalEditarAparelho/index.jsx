@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Modal from "react-modal";
 import styles from "./index.module.css";
+import './Index.scss'
 
 Modal.setAppElement("#root");
 
@@ -59,29 +60,33 @@ function ModalEditarAparelho({ aparelho, closeEditModal, refreshAparelhos }) {
       isOpen={true}
       onRequestClose={closeEditModal}
       contentLabel="Modal de Edição"
-      className={styles.modal}
+      className="modal"
       overlayClassName="overlay"
     >
-      <div className={styles.container}>
+      <div className="containerEdit">
         <h2 className={styles.heading}>Editar Aparelho: {aparelho.nome}</h2>
-        <label htmlFor="imagem" className={styles.label}>
+        <label htmlFor="imagem" >
           Upload de Imagem:
         </label>
-        <input
-          type="file"
-          id="imagem"
-          accept="image/*"
-          onChange={(e) => handleImageUpload(e.target.files)}
-          className={styles.input}
-        />
+       
         {editedAparelho.imagem && (
           <img
             src={editedAparelho.imagem}
             alt={editedAparelho.nome}
-            className={styles.smartphoneImage}
+           className="Img-atual"
           />
         )}
-        <label htmlFor="nome" className={styles.label}>
+        <div className="inputImg">
+          <input
+          type="file"
+          id="imagem"
+          accept="image/*"
+          onChange={(e) => handleImageUpload(e.target.files)}
+          
+        />
+        </div>
+         <div className="conteudo">
+            <label htmlFor="nome">
           Nome:
         </label>
         <input
@@ -119,15 +124,19 @@ function ModalEditarAparelho({ aparelho, closeEditModal, refreshAparelhos }) {
           onChange={(e) => handleFieldChange("preco", e.target.value)}
           className={styles.input}
         />
-        <button onClick={handleEdit} className={styles.button}>
+         </div>
+        <div className="botoes">
+            <button onClick={handleEdit} className="btnSave">
           Salvar Edição
         </button>
         <button
           onClick={closeEditModal}
-          className={styles.cancelButton}
+          className="btnCancel"
         >
           Cancelar
         </button>
+        </div>
+        
       </div>
     </Modal>
   );

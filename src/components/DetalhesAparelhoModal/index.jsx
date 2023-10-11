@@ -1,30 +1,32 @@
 import React from 'react';
 import Modal from 'react-modal';
-import styles from './index.module.css';
-import './Index.scss'
+import './Index.scss';
 
 Modal.setAppElement('#root');
 
 function DetalhesAparelhoModal({ aparelho, closeModal }) {
   return (
-    <div className={styles.modalContainer}>
-      <h2 className={styles.heading}>Detalhes do Aparelho</h2>
-      <div className={styles.imageContainer}>
+    
+      <div className='container'>
+      <h2 >Detalhes do Aparelho</h2>
+      <h3>{aparelho.nome}</h3>
+      <div >
         <img
           src={aparelho.imagem}
           alt={aparelho.nome}
-          className={styles.productImage}
+          
         />
       </div>
-      <div className={styles.detailsContent}>
+      <div >
         <p><strong>Nome:</strong> {aparelho.nome}</p>
         <p><strong>Descrição Curta:</strong> {aparelho.descricaoCurta}</p>
         <p><strong>Descrição Extensa:</strong> {aparelho.descricaoExtensa}</p>
         <p><strong>Preço:</strong> {aparelho.preco}</p>
       </div>
-      <button onClick={closeModal} className={styles.closeButton}>
+      <button onClick={closeModal} >
         Fechar
       </button>
+      
     </div>
   );
 }
